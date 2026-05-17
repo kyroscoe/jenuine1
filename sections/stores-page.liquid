@@ -1,0 +1,42 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="eyebrow">School, team, and community stores</p>
+    <h1>Browse active stores</h1>
+  </div>
+</section>
+
+<section class="filter-bar" data-store-filter>
+  <div class="page-width filter-buttons">
+    <button type="button" class="is-active" data-filter="all">All stores</button>
+    <button type="button" data-filter="school">Schools</button>
+    <button type="button" data-filter="sports">Sports clubs</button>
+    <button type="button" data-filter="farm">Farms &amp; livestock</button>
+    <button type="button" data-filter="fundraiser">Fundraisers</button>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width">
+    {% render 'store-grid' %}
+  </div>
+</section>
+
+<section class="section section-compact">
+  <div class="page-width">
+    <div class="cta-panel cta-light">
+      <div>
+        <h2>Ready to Launch Your Store?</h2>
+        <p>Create a custom online store for your organization with no upfront costs and easy management.</p>
+      </div>
+      <a class="button button-primary" href="/pages/contact">Request a store</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stores page",
+  "settings": [],
+  "presets": [{ "name": "Stores page" }]
+}
+{% endschema %}

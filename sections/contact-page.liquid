@@ -1,0 +1,61 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="eyebrow">Contact</p>
+    <h1>Get In Touch.</h1>
+    <p>Have questions? We're here to help bring your custom apparel vision to life.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width contact-grid">
+    <div class="contact-aside">
+      <article class="info-panel">
+        <h2>Email Us</h2>
+        <p>Send us an email anytime</p>
+        <p>designs.jenuine@gmail.com</p>
+      </article>
+      <article class="info-panel dark">
+        <h2>Order timing</h2>
+        <p>Standard turnaround is typically 10-15 business days unless a store window or special event deadline states otherwise.</p>
+      </article>
+    </div>
+
+    <div class="form-panel">
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="form-message success">Your message was sent successfully.</div>
+        {% endif %}
+        {% if form.errors %}
+          <div class="form-message error">{{ form.errors | default_errors }}</div>
+        {% endif %}
+
+        <div class="form-grid">
+          <label>Name <input type="text" name="contact[name]" required placeholder="Your name" value="{% if form.name %}{{ form.name }}{% endif %}"></label>
+          <label>Email <input type="email" name="contact[email]" required placeholder="you@example.com" value="{% if form.email %}{{ form.email }}{% endif %}"></label>
+        </div>
+        <div class="form-grid">
+          <label>Phone <input type="tel" name="contact[phone]" placeholder="Optional"></label>
+          <label>I need help with
+            <select name="contact[subject]">
+              <option value="Custom apparel">Custom apparel</option>
+              <option value="Spiritwear store">Spiritwear store</option>
+              <option value="Fundraising store">Fundraising store</option>
+              <option value="Bulk order">Bulk order</option>
+              <option value="General question">General question</option>
+            </select>
+          </label>
+        </div>
+        <label>Project details <textarea name="contact[body]" required maxlength="800" rows="7" placeholder="Tell us about the organization, quantity, timeline, and what you need."></textarea></label>
+        <button class="button button-primary" type="submit">Send request</button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact page",
+  "settings": [],
+  "presets": [{ "name": "Contact page" }]
+}
+{% endschema %}

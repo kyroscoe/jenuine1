@@ -1,0 +1,96 @@
+<section class="hero">
+  <div class="page-width hero-grid">
+    <div>
+      <p class="eyebrow">Uniforms &bull; Spiritwear &bull; Team Gear &bull; Corporate Branding</p>
+      <h1>CUSTOM APPAREL THAT TELLS YOUR STORY</h1>
+      <p class="lede">JENuine Designs creates custom apparel, uniforms, spiritwear, and branded online stores that feel organized, consistent, and easy to shop.</p>
+      <div class="button-row">
+        <a class="button button-primary" href="/pages/stores">Find your store</a>
+        <a class="button button-secondary" href="/pages/contact">Start a custom order</a>
+      </div>
+      <div class="mini-card-grid">
+        <article class="mini-card">
+          <h2>Custom apparel</h2>
+          <p>T-shirts, hoodies, uniforms, hats, and branded gear</p>
+        </article>
+        <article class="mini-card">
+          <h2>Spiritwear stores</h2>
+          <p>Dedicated stores for schools, clubs, and organizations</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="logo-card-grid">
+      <article class="logo-card">
+        <div class="logo-frame"><img src="{{ 'northeastern-jets.webp' | asset_url }}" alt="Northeastern Jets" width="400" height="400"></div>
+        <h2>Northeastern Jets</h2>
+        <p>School spiritwear and fan gear</p>
+      </article>
+      <article class="logo-card">
+        <div class="logo-frame"><img src="{{ 'ohio-legends.webp' | asset_url }}" alt="Ohio Legends Volleyball Club" width="400" height="400"></div>
+        <h2>Ohio Legends Volleyball Club</h2>
+        <p>Club volleyball apparel and warmups</p>
+      </article>
+      <article class="logo-card">
+        <div class="logo-frame"><img src="{{ 'sterling-showpigs.webp' | asset_url }}" alt="Sterling Showpigs" width="400" height="400"></div>
+        <h2>Sterling Showpigs</h2>
+        <p>Livestock and show team apparel</p>
+      </article>
+      <article class="logo-card">
+        <div class="logo-frame"><img src="{{ 'growing-neer-farms.webp' | asset_url }}" alt="Growing Neer Farms" width="400" height="400"></div>
+        <h2>Growing Neer Farms</h2>
+        <p>Farm and community merchandise</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width">
+    <div class="section-heading split-heading">
+      <div>
+        <p class="eyebrow">Featured stores</p>
+        <h2>Explore our most popular stores, all fully customizable to match your brand</h2>
+      </div>
+      <a class="text-link" href="/pages/stores">View all stores</a>
+    </div>
+    {% render 'store-grid' %}
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="page-width">
+    <div class="section-heading">
+      <p class="eyebrow">Featured products</p>
+      <h2>Explore our most popular items.</h2>
+    </div>
+    {% render 'featured-products' %}
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="page-width">
+    <div class="section-heading centered">
+      <p class="eyebrow">Simple Process</p>
+      <h2>How It Works</h2>
+      <p>We make it easy to launch custom apparel, spiritwear, and online stores for schools, teams, businesses, and fundraisers.</p>
+    </div>
+    <div class="steps-grid">
+      <article><span>01</span><i class="ri-store-2-line"></i><h3>Choose Your Store Type</h3><p>Start a spiritwear store, fundraiser, team shop, or custom apparel order based on what your group needs.</p></article>
+      <article><span>02</span><i class="ri-image-2-line"></i><h3>Send Logos or Artwork</h3><p>Share your logo, design files, or ideas. We will help prepare the right apparel options for your store or order.</p></article>
+      <article><span>03</span><i class="ri-check-double-line"></i><h3>Approve the Setup</h3><p>Review the design, product choices, and store setup before anything goes live or into production.</p></article>
+      <article><span>04</span><i class="ri-truck-line"></i><h3>Launch and Fulfill</h3><p>Customers place orders online, and we handle production and delivery with a clean, consistent process.</p></article>
+    </div>
+    <div class="centered-cta"><a class="button button-primary" href="/pages/contact">Start a Store</a></div>
+  </div>
+</section>
+
+{% render 'supplier-section' %}
+
+{% schema %}
+{
+  "name": "Home page",
+  "settings": [],
+  "presets": [{ "name": "Home page" }]
+}
+{% endschema %}

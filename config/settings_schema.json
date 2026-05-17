@@ -1,0 +1,21 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "JENuine Designs",
+    "theme_version": "1.0.0",
+    "theme_author": "JENuine Designs",
+    "theme_documentation_url": "https://designsjenuine.com",
+    "theme_support_url": "https://designsjenuine.com/pages/contact"
+  },
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "default": "JENuine Designs"
+      }
+    ]
+  }
+]

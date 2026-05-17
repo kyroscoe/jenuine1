@@ -1,0 +1,45 @@
+{% liquid
+  assign brand_name = settings.brand_name | default: 'JENuine Designs'
+%}
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="{{ routes.root_url }}" class="brand-link" aria-label="{{ brand_name }}">
+      <span class="brand-mark">JD</span>
+      <span>
+        <span class="brand-name">{{ brand_name }}</span>
+        <span class="brand-kicker">Custom apparel and spiritwear</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="{{ routes.root_url }}">Home</a>
+      <a href="/pages/spiritwear">Spiritwear</a>
+      <a href="/pages/stores">School &amp; Team Stores</a>
+      <a href="/pages/custom-apparel">Custom Apparel</a>
+      <a href="/pages/contact">Contact</a>
+    </nav>
+
+    <a class="header-cta" href="/pages/contact">Start a project</a>
+
+    <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="MobileMenu" data-mobile-menu-toggle>
+      <i class="ri-menu-line" aria-hidden="true"></i>
+      <span class="visually-hidden">Toggle menu</span>
+    </button>
+  </div>
+
+  <nav id="MobileMenu" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="{{ routes.root_url }}">Home</a>
+    <a href="/pages/spiritwear">Spiritwear</a>
+    <a href="/pages/stores">School &amp; Team Stores</a>
+    <a href="/pages/custom-apparel">Custom Apparel</a>
+    <a href="/pages/contact">Contact</a>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

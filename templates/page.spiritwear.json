@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": {
+      "type": "spiritwear-page"
+    }
+  },
+  "order": ["main"]
+}

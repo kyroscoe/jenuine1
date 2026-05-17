@@ -1,0 +1,52 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="eyebrow">Policies</p>
+    <h1>Keep policies clear and easy to find.</h1>
+    <p>This page gives shipping, refunds, and terms one clean location without forcing them into the main navigation.</p>
+  </div>
+</section>
+
+<section class="section" data-tabs>
+  <div class="page-width narrow">
+    <div class="filter-buttons">
+      <button type="button" class="is-active" data-tab-button="shipping">Shipping</button>
+      <button type="button" data-tab-button="refund">Refunds</button>
+      <button type="button" data-tab-button="terms">Terms</button>
+    </div>
+
+    <div class="policy-panel">
+      <section data-tab-panel="shipping">
+        <h2>Shipping policy</h2>
+        <p>Please allow 10-15 business days for completion of most custom orders. Shipping time is separate from production time.</p>
+        <h3>Store windows and special notes</h3>
+        <p>Some spiritwear or fundraising stores may have different order windows or delivery methods. Those details should be posted directly on the store page.</p>
+        <h3>Bulk orders</h3>
+        <p>Large or event-based orders should be quoted directly so production and shipping expectations are clear up front.</p>
+      </section>
+      <section data-tab-panel="refund" hidden>
+        <h2>Refund policy</h2>
+        <p>Because most items are custom made, sales are typically final unless there is a defect or a production error.</p>
+        <h3>Defects or order issues</h3>
+        <p>Customers should report issues shortly after delivery and include the order number plus photos where relevant.</p>
+        <h3>Cancellations</h3>
+        <p>Order cancellation rules should depend on whether production has started. That detail can be finalized in Shopify policy settings later.</p>
+      </section>
+      <section data-tab-panel="terms" hidden>
+        <h2>Terms of service</h2>
+        <p>Customers are responsible for reviewing sizes, quantities, and submitted information before placing their order.</p>
+        <h3>Artwork and permissions</h3>
+        <p>Anyone submitting logos or artwork needs the right to use them. That is especially important for schools, clubs, and branded organizations.</p>
+        <h3>Approvals</h3>
+        <p>For direct custom work, proofs and final approvals should be confirmed before production begins.</p>
+      </section>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Policies page",
+  "settings": [],
+  "presets": [{ "name": "Policies page" }]
+}
+{% endschema %}
