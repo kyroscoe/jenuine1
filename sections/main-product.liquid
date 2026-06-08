@@ -1,0 +1,62 @@
+<section class="section">
+  <div class="page-width product-detail">
+    <div class="product-media">
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 1000 | image_tag: alt: product.title, width: 700, height: 700 }}
+      {% else %}
+        <div class="product-placeholder large">{{ product.title | slice: 0, 2 }}</div>
+      {% endif %}
+    </div>
+
+    <div class="product-summary">
+      {% if product.collections.first %}
+        <p class="eyebrow">{{ product.collections.first.title }}</p>
+      {% endif %}
+      <h1>{{ product.title }}</h1>
+      <p class="product-price">
+        {% if product.price_varies %}From {% endif %}{{ product.price_min | money }}
+      </p>
+
+      {% if product.description != blank %}
+        <div class="rte product-description">{{ product.description }}</div>
+      {% endif %}
+
+      {% form 'product', product, class: 'product-form' %}
+        {% if product.has_only_default_variant %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% else %}
+          <label>
+            Options
+            <select name="id">
+              {% for variant in product.variants %}
+                <option
+                  value="{{ variant.id }}"
+                  {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                  {% unless variant.available %}disabled{% endunless %}
+                >
+                  {{ variant.title }} - {{ variant.price | money }}{% unless variant.available %} - Sold out{% endunless %}
+                </option>
+              {% endfor %}
+            </select>
+          </label>
+        {% endif %}
+
+        <label>
+          Quantity
+          <input type="number" name="quantity" value="1" min="1">
+        </label>
+
+        <button class="button button-primary" type="submit" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+          {% if product.selected_or_first_available_variant.available %}Add to cart{% else %}Sold out{% endif %}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": []
+}
+{% endschema %}

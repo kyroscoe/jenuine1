@@ -1,0 +1,62 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="eyebrow">Shop</p>
+    <h1>{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <div class="rte">{{ collection.description }}</div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width">
+    {% paginate collection.products by 24 %}
+      {% if collection.products_count > 0 %}
+        <div class="product-grid">
+          {% for product in collection.products %}
+            <article class="product-card">
+              <a href="{{ product.url }}">
+                <div>
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy', width: 533, height: 533 }}
+                  {% else %}
+                    <div class="product-placeholder">{{ product.title | slice: 0, 2 }}</div>
+                  {% endif %}
+                </div>
+                <section>
+                  <p>{{ collection.title }}</p>
+                  <h3>{{ product.title }}</h3>
+                  <strong>{% if product.price_varies %}From {% endif %}{{ product.price_min | money }}</strong>
+                </section>
+              </a>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <nav class="pagination" aria-label="Pagination">
+            {% if paginate.previous %}
+              <a class="button button-secondary" href="{{ paginate.previous.url }}">Previous</a>
+            {% endif %}
+            <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+            {% if paginate.next %}
+              <a class="button button-secondary" href="{{ paginate.next.url }}">Next</a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      {% else %}
+        <div class="empty-state">
+          <h2>Products coming soon</h2>
+          <p>This collection is ready. Add products to it in Shopify admin and they will appear here automatically.</p>
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": []
+}
+{% endschema %}

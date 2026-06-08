@@ -1,0 +1,59 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="eyebrow">Cart</p>
+    <h1>Your cart</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width">
+    {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" class="cart-form">
+        <div class="cart-items">
+          {% for item in cart.items %}
+            <article class="cart-item">
+              <a href="{{ item.url }}" class="cart-item-image">
+                {% if item.image %}
+                  {{ item.image | image_url: width: 240 | image_tag: alt: item.product.title, loading: 'lazy', width: 120, height: 120 }}
+                {% endif %}
+              </a>
+              <div>
+                <h2><a href="{{ item.url }}">{{ item.product.title }}</a></h2>
+                {% unless item.variant.title == 'Default Title' %}
+                  <p>{{ item.variant.title }}</p>
+                {% endunless %}
+                <p>{{ item.final_line_price | money }}</p>
+              </div>
+              <label>
+                Quantity
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+              </label>
+            </article>
+          {% endfor %}
+        </div>
+
+        <div class="cart-summary">
+          <h2>Subtotal</h2>
+          <p>{{ cart.total_price | money }}</p>
+          <div class="button-row">
+            <button class="button button-secondary" type="submit" name="update">Update cart</button>
+            <button class="button button-primary" type="submit" name="checkout">Checkout</button>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="empty-state">
+        <h2>Your cart is empty</h2>
+        <p>Browse a store to add apparel to your cart.</p>
+        <a class="button button-primary" href="/pages/stores">Find your store</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main cart",
+  "settings": []
+}
+{% endschema %}

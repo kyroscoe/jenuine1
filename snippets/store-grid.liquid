@@ -1,53 +1,100 @@
 <div class="store-grid">
+  {% assign northeastern_collection = collections['northeastern-jets'] %}
   <article class="store-card" data-category="school">
-    <div class="store-logo"><img src="{{ 'northeastern-jets.webp' | asset_url }}" alt="Northeastern Jets" width="400" height="300"></div>
+    <a class="store-logo" href="{% if northeastern_collection.url != blank %}{{ northeastern_collection.url }}{% else %}/collections/northeastern-jets{% endif %}">
+      <img src="{{ 'northeastern-jets.webp' | asset_url }}" alt="Northeastern Jets" width="400" height="300">
+    </a>
     <div class="store-body">
-      <div class="card-title-row"><h3>Northeastern Jets</h3><span>school</span></div>
-      <p>School spiritwear and team apparel for Jets supporters.</p>
+      <div class="card-title-row"><h3><a href="{% if northeastern_collection.url != blank %}{{ northeastern_collection.url }}{% else %}/collections/northeastern-jets{% endif %}">Northeastern Jets</a></h3><span>school</span></div>
+      <p>{% if northeastern_collection.description != blank %}{{ northeastern_collection.description | strip_html }}{% else %}School spiritwear and team apparel for Jets supporters.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
+        {% if northeastern_collection.products_count > 0 %}
+          <ul>
+            {% for product in northeastern_collection.products limit: 3 %}
+              <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
+            {% endfor %}
+          </ul>
+        {% else %}
         <ul>
           <li><span>Jets Volleyball Tee</span><span>From $16.00</span></li>
           <li><span>Vintage NE Crewneck</span><span>From $22.00</span></li>
           <li><span>Northeastern Jets Gray Tee</span><span>From $16.00</span></li>
         </ul>
+        {% endif %}
       </div>
     </div>
   </article>
+  {% assign ohio_collection = collections['ohio-legends'] %}
   <article class="store-card" data-category="sports">
-    <div class="store-logo"><img src="{{ 'ohio-legends.webp' | asset_url }}" alt="Ohio Legends Volleyball Club" width="400" height="300"></div>
+    <a class="store-logo" href="{% if ohio_collection.url != blank %}{{ ohio_collection.url }}{% else %}/collections/ohio-legends{% endif %}">
+      <img src="{{ 'ohio-legends.webp' | asset_url }}" alt="Ohio Legends Volleyball Club" width="400" height="300">
+    </a>
     <div class="store-body">
-      <div class="card-title-row"><h3>Ohio Legends Volleyball Club</h3><span>sports</span></div>
-      <p>Club volleyball spiritwear for athletes, families, and fans.</p>
+      <div class="card-title-row"><h3><a href="{% if ohio_collection.url != blank %}{{ ohio_collection.url }}{% else %}/collections/ohio-legends{% endif %}">Ohio Legends Volleyball Club</a></h3><span>sports</span></div>
+      <p>{% if ohio_collection.description != blank %}{{ ohio_collection.description | strip_html }}{% else %}Club volleyball spiritwear for athletes, families, and fans.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
+        {% if ohio_collection.products_count > 0 %}
+          <ul>
+            {% for product in ohio_collection.products limit: 3 %}
+              <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
+            {% endfor %}
+          </ul>
+        {% else %}
         <ul>
           <li><span>Ohio Legends Adult Tee</span><span>From $16.00</span></li>
           <li><span>Ohio Legends Sweatpants</span><span>From $25.00</span></li>
           <li><span>Ohio Legends Performance Shirt</span><span>From $16.00</span></li>
         </ul>
+        {% endif %}
       </div>
     </div>
   </article>
+  {% assign sterling_collection = collections['sterling-showpigs'] %}
   <article class="store-card" data-category="farm">
-    <div class="store-logo"><img src="{{ 'sterling-showpigs.webp' | asset_url }}" alt="Sterling Showpigs" width="400" height="300"></div>
+    <a class="store-logo" href="{% if sterling_collection.url != blank %}{{ sterling_collection.url }}{% else %}/collections/sterling-showpigs{% endif %}">
+      <img src="{{ 'sterling-showpigs.webp' | asset_url }}" alt="Sterling Showpigs" width="400" height="300">
+    </a>
     <div class="store-body">
-      <div class="card-title-row"><h3>Sterling Showpigs</h3><span>farm</span></div>
-      <p>Apparel for the Sterling Showpigs community and supporters.</p>
+      <div class="card-title-row"><h3><a href="{% if sterling_collection.url != blank %}{{ sterling_collection.url }}{% else %}/collections/sterling-showpigs{% endif %}">Sterling Showpigs</a></h3><span>farm</span></div>
+      <p>{% if sterling_collection.description != blank %}{{ sterling_collection.description | strip_html }}{% else %}Apparel for the Sterling Showpigs community and supporters.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
+        {% if sterling_collection.products_count > 0 %}
+          <ul>
+            {% for product in sterling_collection.products limit: 3 %}
+              <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
+            {% endfor %}
+          </ul>
+        {% else %}
         <ul>
           <li><span>Sterling Showpigs Tee</span><span>From $16.99</span></li>
         </ul>
+        {% endif %}
       </div>
     </div>
   </article>
+  {% assign growing_collection = collections['growing-neer-farms'] %}
   <article class="store-card" data-category="farm">
-    <div class="store-logo"><img src="{{ 'growing-neer-farms.webp' | asset_url }}" alt="Growing Neer Farms" width="400" height="300"></div>
+    <a class="store-logo" href="{% if growing_collection.url != blank %}{{ growing_collection.url }}{% else %}/collections/growing-neer-farms{% endif %}">
+      <img src="{{ 'growing-neer-farms.webp' | asset_url }}" alt="Growing Neer Farms" width="400" height="300">
+    </a>
     <div class="store-body">
-      <div class="card-title-row"><h3>Growing Neer Farms</h3><span>farm</span></div>
-      <p>Farm-branded apparel and custom merchandise for supporters.</p>
-      <div class="product-list"><p>Available products</p><p class="muted">Products coming soon for this store.</p></div>
+      <div class="card-title-row"><h3><a href="{% if growing_collection.url != blank %}{{ growing_collection.url }}{% else %}/collections/growing-neer-farms{% endif %}">Growing Neer Farms</a></h3><span>farm</span></div>
+      <p>{% if growing_collection.description != blank %}{{ growing_collection.description | strip_html }}{% else %}Farm-branded apparel and custom merchandise for supporters.{% endif %}</p>
+      <div class="product-list">
+        <p>Available products</p>
+        {% if growing_collection.products_count > 0 %}
+          <ul>
+            {% for product in growing_collection.products limit: 3 %}
+              <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="muted">Products coming soon for this store.</p>
+        {% endif %}
+      </div>
     </div>
   </article>
 </div>
