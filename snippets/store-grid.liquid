@@ -9,7 +9,7 @@
       <p>{% if northeastern_collection.description != blank %}{{ northeastern_collection.description | strip_html }}{% else %}School spiritwear and team apparel for Jets supporters.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
-        {% if northeastern_collection.products_count > 0 %}
+        {% if northeastern_collection.products.size > 0 %}
           <ul>
             {% for product in northeastern_collection.products limit: 3 %}
               <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
@@ -35,7 +35,7 @@
       <p>{% if ohio_collection.description != blank %}{{ ohio_collection.description | strip_html }}{% else %}Club volleyball spiritwear for athletes, families, and fans.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
-        {% if ohio_collection.products_count > 0 %}
+        {% if ohio_collection.products.size > 0 %}
           <ul>
             {% for product in ohio_collection.products limit: 3 %}
               <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
@@ -61,7 +61,7 @@
       <p>{% if sterling_collection.description != blank %}{{ sterling_collection.description | strip_html }}{% else %}Apparel for the Sterling Showpigs community and supporters.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
-        {% if sterling_collection.products_count > 0 %}
+        {% if sterling_collection.products.size > 0 %}
           <ul>
             {% for product in sterling_collection.products limit: 3 %}
               <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>
@@ -85,7 +85,7 @@
       <p>{% if growing_collection.description != blank %}{{ growing_collection.description | strip_html }}{% else %}Farm-branded apparel and custom merchandise for supporters.{% endif %}</p>
       <div class="product-list">
         <p>Available products</p>
-        {% if growing_collection.products_count > 0 %}
+        {% if growing_collection.products.size > 0 %}
           <ul>
             {% for product in growing_collection.products limit: 3 %}
               <li><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price_min | money }}</span></li>

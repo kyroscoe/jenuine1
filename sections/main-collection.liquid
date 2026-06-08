@@ -11,7 +11,7 @@
 <section class="section">
   <div class="page-width">
     {% paginate collection.products by 24 %}
-      {% if collection.products_count > 0 %}
+      {% if collection.products.size > 0 %}
         <div class="product-grid">
           {% for product in collection.products %}
             <article class="product-card">
