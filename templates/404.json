@@ -11,10 +11,17 @@
   "sections": {
     "main": {
       "type": "not-found",
+      "disabled": true,
+      "settings": {}
+    },
+    "spiritwear_page_6ypjKA": {
+      "type": "spiritwear-page",
+      "name": "Spiritwear page",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "spiritwear_page_6ypjKA"
   ]
 }
