@@ -1,0 +1,246 @@
+{% case page.handle %}
+  {% when 'stores' %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">School, team, and community stores</p>
+        <h1>Browse active stores</h1>
+      </div>
+    </section>
+    <section class="filter-bar" data-store-filter>
+      <div class="page-width filter-buttons">
+        <button type="button" class="is-active" data-filter="all">All stores</button>
+        <button type="button" data-filter="school">Schools</button>
+        <button type="button" data-filter="sports">Sports clubs</button>
+        <button type="button" data-filter="farm">Farms &amp; livestock</button>
+        <button type="button" data-filter="fundraiser">Fundraisers</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="page-width">{% render 'store-grid' %}</div>
+    </section>
+    <section class="section section-compact">
+      <div class="page-width">
+        <div class="cta-panel cta-light">
+          <div>
+            <h2>Ready to Launch Your Store?</h2>
+            <p>Create a custom online store for your organization with no upfront costs and easy management.</p>
+          </div>
+          <a class="button button-primary" href="/pages/contact">Request a store</a>
+        </div>
+      </div>
+    </section>
+
+  {% when 'spiritwear' %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">Spiritwear</p>
+        <h1>Spiritwear That Builds Community.</h1>
+        <p>Show your pride with custom-designed apparel for schools, teams, and organizations.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="page-width">
+        <div class="store-grid spiritwear-grid">
+          <article class="store-card">
+            <div class="store-logo"><img src="{{ 'northeastern-jets.webp' | asset_url }}" alt="Northeastern Jets" width="400" height="300"></div>
+            <div class="store-body"><h2>Northeastern Jets</h2><p>School spiritwear and team apparel for Jets supporters.</p></div>
+          </article>
+          <article class="store-card">
+            <div class="store-logo"><img src="{{ 'ohio-legends.webp' | asset_url }}" alt="Ohio Legends Volleyball Club" width="400" height="300"></div>
+            <div class="store-body"><h2>Ohio Legends Volleyball Club</h2><p>Club volleyball spiritwear for athletes, families, and fans.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-white">
+      <div class="page-width">
+        <p class="eyebrow">Featured spiritwear products</p>
+        {% render 'featured-products' %}
+      </div>
+    </section>
+    <section class="section">
+      <div class="page-width">
+        <div class="cta-panel cta-dark">
+          <div>
+            <p class="eyebrow">Need a spiritwear store?</p>
+            <h2>Launch a dedicated school or team store.</h2>
+            <p>Use one organized storefront per school, team, or organization so families and supporters can actually find the right gear.</p>
+          </div>
+          <a class="button button-inverse" href="/pages/contact">Start a spiritwear store</a>
+        </div>
+      </div>
+    </section>
+
+  {% when 'custom-apparel' %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">Custom apparel</p>
+        <h1>Custom apparel for teams, businesses, schools, and events.</h1>
+      </div>
+    </section>
+    <section class="section">
+      <div class="page-width feature-grid four">
+        <article><h2>Screen printing</h2><p>Best for larger runs, spiritwear launches, and bold graphic designs.</p></article>
+        <article><h2>Embroidery</h2><p>Ideal for hats, polos, uniforms, and more premium branded pieces.</p></article>
+        <article><h2>Heat transfer</h2><p>Works well for names, numbers, and lower-volume customization.</p></article>
+        <article><h2>DTF printing</h2><p>Good option for detailed artwork, fast setup, and flexible quantities.</p></article>
+      </div>
+    </section>
+    <section class="section section-white">
+      <div class="page-width">
+        <p class="eyebrow">Popular apparel categories</p>
+        <div class="category-grid">
+          <div>T-shirts</div>
+          <div>Hoodies &amp; fleece</div>
+          <div>Uniforms &amp; performance gear</div>
+          <div>Hats, outerwear, and workwear</div>
+        </div>
+      </div>
+    </section>
+    {% render 'supplier-section' %}
+
+  {% when 'fundraising' %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">Fundraising stores</p>
+        <h1>Fundraising should be a real service, not a side note.</h1>
+        <p>This page gives JENuine Designs a clear place to sell fundraising store setup for schools, teams, clubs, and organizations.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="page-width feature-grid four">
+        <article><p class="eyebrow">Step 1</p><h2>Tell us about your group</h2><p>Share the organization, the goal, and the type of apparel you want to sell.</p></article>
+        <article><p class="eyebrow">Step 2</p><h2>We build the store</h2><p>Products, branding, and store setup are organized around your group identity.</p></article>
+        <article><p class="eyebrow">Step 3</p><h2>Supporters place orders online</h2><p>Families, fans, and supporters can shop directly from the store.</p></article>
+        <article><p class="eyebrow">Step 4</p><h2>Your group earns from sales</h2><p>A portion of proceeds goes back to the organization or fundraiser.</p></article>
+      </div>
+    </section>
+    <section class="section section-white">
+      <div class="page-width two-panel-grid">
+        <article class="info-panel">
+          <p class="eyebrow">Best fit</p>
+          <h2>Good fundraising store use cases</h2>
+          <ul>
+            <li>Schools and booster clubs</li>
+            <li>Sports teams and club programs</li>
+            <li>Livestock and agricultural organizations</li>
+            <li>Local nonprofits and community events</li>
+          </ul>
+        </article>
+        <article class="info-panel dark">
+          <p class="eyebrow">Call to action</p>
+          <h2>Ready to launch a fundraiser?</h2>
+          <p>Use the contact page to request a fundraising store and outline the group, timeframe, and type of merchandise needed.</p>
+          <a class="button button-inverse" href="/pages/contact">Start a fundraiser</a>
+        </article>
+      </div>
+    </section>
+
+  {% when 'contact' %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">Contact</p>
+        <h1>Get In Touch.</h1>
+        <p>Have questions? We're here to help bring your custom apparel vision to life.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="page-width contact-grid">
+        <div class="contact-aside">
+          <article class="info-panel">
+            <h2>Email Us</h2>
+            <p>Send us an email anytime</p>
+            <p>designs.jenuine@gmail.com</p>
+          </article>
+          <article class="info-panel dark">
+            <h2>Order timing</h2>
+            <p>Standard turnaround is typically 10-15 business days unless a store window or special event deadline states otherwise.</p>
+          </article>
+        </div>
+        <div class="form-panel">
+          {% form 'contact' %}
+            {% if form.posted_successfully? %}<div class="form-message success">Your message was sent successfully.</div>{% endif %}
+            {% if form.errors %}<div class="form-message error">{{ form.errors | default_errors }}</div>{% endif %}
+            <div class="form-grid">
+              <label>Name <input type="text" name="contact[name]" required placeholder="Your name" value="{% if form.name %}{{ form.name }}{% endif %}"></label>
+              <label>Email <input type="email" name="contact[email]" required placeholder="you@example.com" value="{% if form.email %}{{ form.email }}{% endif %}"></label>
+            </div>
+            <div class="form-grid">
+              <label>Phone <input type="tel" name="contact[phone]" placeholder="Optional"></label>
+              <label>I need help with
+                <select name="contact[subject]">
+                  <option value="Custom apparel">Custom apparel</option>
+                  <option value="Spiritwear store">Spiritwear store</option>
+                  <option value="Fundraising store">Fundraising store</option>
+                  <option value="Bulk order">Bulk order</option>
+                  <option value="General question">General question</option>
+                </select>
+              </label>
+            </div>
+            <label>Project details <textarea name="contact[body]" required maxlength="800" rows="7" placeholder="Tell us about the organization, quantity, timeline, and what you need."></textarea></label>
+            <button class="button button-primary" type="submit">Send request</button>
+          {% endform %}
+        </div>
+      </div>
+    </section>
+
+  {% when 'policies' %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">Policies</p>
+        <h1>Keep policies clear and easy to find.</h1>
+        <p>This page gives shipping, refunds, and terms one clean location without forcing them into the main navigation.</p>
+      </div>
+    </section>
+    <section class="section" data-tabs>
+      <div class="page-width narrow">
+        <div class="filter-buttons">
+          <button type="button" class="is-active" data-tab-button="shipping">Shipping</button>
+          <button type="button" data-tab-button="refund">Refunds</button>
+          <button type="button" data-tab-button="terms">Terms</button>
+        </div>
+        <div class="policy-panel">
+          <section data-tab-panel="shipping">
+            <h2>Shipping policy</h2>
+            <p>Please allow 10-15 business days for completion of most custom orders. Shipping time is separate from production time.</p>
+            <h3>Store windows and special notes</h3>
+            <p>Some spiritwear or fundraising stores may have different order windows or delivery methods. Those details should be posted directly on the store page.</p>
+            <h3>Bulk orders</h3>
+            <p>Large or event-based orders should be quoted directly so production and shipping expectations are clear up front.</p>
+          </section>
+          <section data-tab-panel="refund" hidden>
+            <h2>Refund policy</h2>
+            <p>Because most items are custom made, sales are typically final unless there is a defect or a production error.</p>
+            <h3>Defects or order issues</h3>
+            <p>Customers should report issues shortly after delivery and include the order number plus photos where relevant.</p>
+            <h3>Cancellations</h3>
+            <p>Order cancellation rules should depend on whether production has started. That detail can be finalized in Shopify policy settings later.</p>
+          </section>
+          <section data-tab-panel="terms" hidden>
+            <h2>Terms of service</h2>
+            <p>Customers are responsible for reviewing sizes, quantities, and submitted information before placing their order.</p>
+            <h3>Artwork and permissions</h3>
+            <p>Anyone submitting logos or artwork needs the right to use them. That is especially important for schools, clubs, and branded organizations.</p>
+            <h3>Approvals</h3>
+            <p>For direct custom work, proofs and final approvals should be confirmed before production begins.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+  {% else %}
+    <section class="page-hero">
+      <div class="page-width">
+        <p class="eyebrow">{{ page.title }}</p>
+        <h1>{{ page.title }}</h1>
+        <div class="rte">{{ page.content }}</div>
+      </div>
+    </section>
+{% endcase %}
+
+{% schema %}
+{
+  "name": "Page router",
+  "settings": []
+}
+{% endschema %}
