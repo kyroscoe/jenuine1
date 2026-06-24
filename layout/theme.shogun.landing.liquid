@@ -19,7 +19,9 @@ This file can be re-written at any time.
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
     {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
-  </head>
+  
+  {% render 'shogun-head' %}
+</head>
   <body>
     {% include 'shogun-content-handler' %}
 
