@@ -1,0 +1,24 @@
+<article class="product-card">
+  <a href="{{ product.url }}">
+    <div>
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy', width: 533, height: 533 }}
+      {% else %}
+        <div class="product-placeholder">{{ product.title | slice: 0, 2 }}</div>
+      {% endif %}
+    </div>
+    <section>
+      <p>
+        {% if label != blank %}
+          {{ label }}
+        {% elsif product.collections.first %}
+          {{ product.collections.first.title }}
+        {% else %}
+          Shop
+        {% endif %}
+      </p>
+      <h3>{{ product.title }}</h3>
+      <strong>{% if product.price_varies %}From {% endif %}{{ product.price_min | money }}</strong>
+    </section>
+  </a>
+</article>

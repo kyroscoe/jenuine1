@@ -5,7 +5,7 @@
 %}
 
 <div class="store-grid">
-  {% if collection_menu.links.size > 0 %}
+  {% if collection_menu_handle != blank %}
     {% for link in collection_menu.links %}
       {% if link.type == 'collection_link' and link.object != blank %}
         {% assign collection = link.object %}

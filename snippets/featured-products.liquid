@@ -1,35 +1,43 @@
-<div class="product-grid">
-  {% assign shown_products = 0 %}
+{% liquid
+  assign product_menu_handle = menu_handle | default: blank
+  assign product_menu = linklists[product_menu_handle]
+  assign shown_products = 0
+%}
 
-  {% for product in collections.all.products limit: 12 %}
-    {% if shown_products < 6 %}
-      {% assign shown_products = shown_products | plus: 1 %}
-      <article class="product-card">
-        <a href="{{ product.url }}">
-          <div>
-            {% if product.featured_image %}
-              {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy', width: 533, height: 533 }}
-            {% else %}
-              <div class="product-placeholder">{{ product.title | slice: 0, 2 }}</div>
-            {% endif %}
-          </div>
-          <section>
-            <p>{% if product.collections.first %}{{ product.collections.first.title }}{% else %}Shop{% endif %}</p>
-            <h3>{{ product.title }}</h3>
-            <strong>{% if product.price_varies %}From {% endif %}{{ product.price_min | money }}</strong>
-          </section>
-        </a>
-      </article>
-    {% endif %}
-  {% endfor %}
+<div class="product-grid">
+  {% if product_menu.links.size > 0 %}
+    {% for link in product_menu.links %}
+      {% if link.type == 'collection_link' and link.object != blank %}
+        {% assign collection = link.object %}
+        {% for product in collection.products limit: 4 %}
+          {% if shown_products < 8 %}
+            {% assign shown_products = shown_products | plus: 1 %}
+            {% render 'product-card', product: product, label: collection.title %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% for product in collections.all.products limit: 12 %}
+      {% if shown_products < 6 %}
+        {% assign shown_products = shown_products | plus: 1 %}
+        {% render 'product-card', product: product %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 
   {% if shown_products == 0 %}
     <article class="product-card">
       <div><div class="product-placeholder">JD</div></div>
       <section>
         <p>Products</p>
-        <h3>No products available yet</h3>
-        <strong>Add products in Shopify admin</strong>
+        {% if product_menu_handle != blank %}
+          <h3>No products found</h3>
+          <strong>Add collection links with active products to {{ product_menu_handle }}</strong>
+        {% else %}
+          <h3>No products available yet</h3>
+          <strong>Add products in Shopify admin</strong>
+        {% endif %}
       </section>
     </article>
   {% endif %}
