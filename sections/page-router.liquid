@@ -12,7 +12,7 @@
       </div>
     </section>
     <section class="section">
-      <div class="page-width">{% render 'store-grid' %}</div>
+      <div class="page-width">{% render 'store-grid', menu_handle: 'school-team-stores' %}</div>
     </section>
     <section class="section section-compact">
       <div class="page-width">
@@ -36,16 +36,7 @@
     </section>
     <section class="section">
       <div class="page-width">
-        <div class="store-grid spiritwear-grid">
-          <article class="store-card">
-            <div class="store-logo"><img src="{{ 'northeastern-jets.webp' | asset_url }}" alt="Northeastern Jets" width="400" height="300"></div>
-            <div class="store-body"><h2>Northeastern Jets</h2><p>School spiritwear and team apparel for Jets supporters.</p></div>
-          </article>
-          <article class="store-card">
-            <div class="store-logo"><img src="{{ 'ohio-legends.webp' | asset_url }}" alt="Ohio Legends Volleyball Club" width="400" height="300"></div>
-            <div class="store-body"><h2>Ohio Legends Volleyball Club</h2><p>Club volleyball spiritwear for athletes, families, and fans.</p></div>
-          </article>
-        </div>
+        {% render 'store-grid', menu_handle: 'spiritwear' %}
       </div>
     </section>
     <section class="section section-white">
