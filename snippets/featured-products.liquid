@@ -1,38 +1,36 @@
 <div class="product-grid">
-  {% assign featured_handles = 'northeastern-jets,ohio-legends,sterling-showpigs,growing-neer-farms' | split: ',' %}
   {% assign shown_products = 0 %}
-  {% for handle in featured_handles %}
-    {% assign featured_collection = collections[handle] %}
-    {% if featured_collection.products.size > 0 %}
-      {% for product in featured_collection.products limit: 2 %}
-        {% if shown_products < 6 %}
-          {% assign shown_products = shown_products | plus: 1 %}
-          <article class="product-card">
-            <a href="{{ product.url }}">
-              <div>
-                {% if product.featured_image %}
-                  {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy', width: 533, height: 533 }}
-                {% else %}
-                  <div class="product-placeholder">{{ product.title | slice: 0, 2 }}</div>
-                {% endif %}
-              </div>
-              <section>
-                <p>{{ featured_collection.title }}</p>
-                <h3>{{ product.title }}</h3>
-                <strong>{% if product.price_varies %}From {% endif %}{{ product.price_min | money }}</strong>
-              </section>
-            </a>
-          </article>
-        {% endif %}
-      {% endfor %}
+
+  {% for product in collections.all.products limit: 12 %}
+    {% if shown_products < 6 %}
+      {% assign shown_products = shown_products | plus: 1 %}
+      <article class="product-card">
+        <a href="{{ product.url }}">
+          <div>
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 700 | image_tag: alt: product.title, loading: 'lazy', width: 533, height: 533 }}
+            {% else %}
+              <div class="product-placeholder">{{ product.title | slice: 0, 2 }}</div>
+            {% endif %}
+          </div>
+          <section>
+            <p>{% if product.collections.first %}{{ product.collections.first.title }}{% else %}Shop{% endif %}</p>
+            <h3>{{ product.title }}</h3>
+            <strong>{% if product.price_varies %}From {% endif %}{{ product.price_min | money }}</strong>
+          </section>
+        </a>
+      </article>
     {% endif %}
   {% endfor %}
 
   {% if shown_products == 0 %}
-    <article class="product-card"><div><img src="https://designsjenuine.com/cdn/shop/files/ScreenShot2024-08-12at3.59.23PM.png?v=1723492836&width=533" alt="Jets Volleyball Tee" width="533" height="533"></div><section><p>Northeastern Jets</p><h3>Jets Volleyball Tee</h3><strong>From $16.00</strong></section></article>
-    <article class="product-card"><div><img src="https://designsjenuine.com/cdn/shop/products/vintcn.jpg?v=1678935024&width=533" alt="Vintage NE Crewneck" width="533" height="533"></div><section><p>Northeastern Jets</p><h3>Vintage NE Crewneck</h3><strong>From $22.00</strong></section></article>
-    <article class="product-card"><div><img src="https://designsjenuine.com/cdn/shop/files/Screen_Shot_2024-12-10_at_10.36.24_AM.png?v=1733922288&width=533" alt="Ohio Legends Adult Tee" width="533" height="533"></div><section><p>Ohio Legends Volleyball Club</p><h3>Ohio Legends Adult Tee</h3><strong>From $16.00</strong></section></article>
-    <article class="product-card"><div><img src="https://designsjenuine.com/cdn/shop/files/2_11937194-1546-4d65-944d-fc758a2b0615.jpg?v=1733881886&width=533" alt="Ohio Legends Sweatpants" width="533" height="533"></div><section><p>Ohio Legends Volleyball Club</p><h3>Ohio Legends Sweatpants</h3><strong>From $25.00</strong></section></article>
-    <article class="product-card"><div><img src="https://designsjenuine.com/cdn/shop/files/ScreenShot2023-12-04at3.11.58PM.png?v=1701743084&width=533" alt="Sterling Showpigs Tee" width="533" height="533"></div><section><p>Sterling Showpigs</p><h3>Sterling Showpigs Tee</h3><strong>From $16.99</strong></section></article>
+    <article class="product-card">
+      <div><div class="product-placeholder">JD</div></div>
+      <section>
+        <p>Products</p>
+        <h3>No products available yet</h3>
+        <strong>Add products in Shopify admin</strong>
+      </section>
+    </article>
   {% endif %}
 </div>
