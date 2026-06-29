@@ -43,4 +43,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
+    const mainImage = gallery.querySelector('[data-main-image]');
+    const thumbnails = gallery.querySelectorAll('[data-gallery-thumbnail]');
+
+    if (!mainImage || thumbnails.length === 0) {
+      return;
+    }
+
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener('click', () => {
+        const fullImage = thumbnail.getAttribute('data-full-image');
+        const imageAlt = thumbnail.getAttribute('data-image-alt') || '';
+
+        if (!fullImage) {
+          return;
+        }
+
+        mainImage.setAttribute('src', fullImage);
+        mainImage.setAttribute('alt', imageAlt);
+
+        thumbnails.forEach((item) => {
+          const isActive = item === thumbnail;
+          item.classList.toggle('is-active', isActive);
+          item.setAttribute('aria-current', String(isActive));
+        });
+      });
+    });
+  });
 });

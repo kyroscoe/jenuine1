@@ -2,11 +2,38 @@
   <div class="page-width product-detail">
     <div class="product-media">
       {% if product.images.size > 0 %}
-        <div class="product-media-grid">
-          {% for image in product.images %}
-            {% assign image_alt = image.alt | default: product.title %}
-            {{ image | image_url: width: 1000 | image_tag: alt: image_alt, width: 700, height: 700, loading: 'lazy' }}
-          {% endfor %}
+        {% assign featured_product_image = product.featured_image | default: product.images.first %}
+        {% assign featured_image_alt = featured_product_image.alt | default: product.title %}
+        <div class="product-gallery" data-product-gallery>
+          <div class="product-gallery-main">
+            <img
+              src="{{ featured_product_image | image_url: width: 1000 }}"
+              alt="{{ featured_image_alt | escape }}"
+              width="700"
+              height="700"
+              loading="eager"
+              data-main-image
+            >
+          </div>
+
+          {% if product.images.size > 1 %}
+            <div class="product-gallery-thumbnails" aria-label="Product images">
+              {% for image in product.images %}
+                {% assign image_alt = image.alt | default: product.title %}
+                <button
+                  class="product-gallery-thumbnail{% if image.id == featured_product_image.id %} is-active{% endif %}"
+                  type="button"
+                  aria-label="Show image {{ forloop.index }} of {{ product.images.size }}"
+                  aria-current="{% if image.id == featured_product_image.id %}true{% else %}false{% endif %}"
+                  data-gallery-thumbnail
+                  data-full-image="{{ image | image_url: width: 1000 }}"
+                  data-image-alt="{{ image_alt | escape }}"
+                >
+                  {{ image | image_url: width: 180 | image_tag: alt: image_alt, width: 90, height: 90, loading: 'lazy' }}
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       {% else %}
         <div class="product-placeholder large">{{ product.title | slice: 0, 2 }}</div>
