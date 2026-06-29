@@ -1,8 +1,13 @@
 <section class="section">
   <div class="page-width product-detail">
     <div class="product-media">
-      {% if product.featured_image %}
-        {{ product.featured_image | image_url: width: 1000 | image_tag: alt: product.title, width: 700, height: 700 }}
+      {% if product.images.size > 0 %}
+        <div class="product-media-grid">
+          {% for image in product.images %}
+            {% assign image_alt = image.alt | default: product.title %}
+            {{ image | image_url: width: 1000 | image_tag: alt: image_alt, width: 700, height: 700, loading: 'lazy' }}
+          {% endfor %}
+        </div>
       {% else %}
         <div class="product-placeholder large">{{ product.title | slice: 0, 2 }}</div>
       {% endif %}

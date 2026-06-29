@@ -882,6 +882,16 @@ textarea:focus {
   padding: 20px;
 }
 
+.product-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.product-media-grid img:first-child {
+  grid-column: 1 / -1;
+}
+
 .product-media img {
   width: 100%;
   height: auto;
@@ -1138,6 +1148,14 @@ textarea:focus {
 
   .cta-panel {
     align-items: start;
+  }
+
+  .product-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-media-grid img:first-child {
+    grid-column: auto;
   }
 
   .cart-item {
