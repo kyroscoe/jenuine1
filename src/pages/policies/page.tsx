@@ -14,10 +14,6 @@ export default function PoliciesPage() {
       <section className="border-b border-stone-200 bg-white px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">Policies</p>
-          <h1 className="mt-3 max-w-4xl text-5xl font-semibold tracking-tight text-stone-950">Keep policies clear and easy to find.</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-600">
-            This page gives shipping, refunds, and terms one clean location without forcing them into the main navigation.
-          </p>
         </div>
       </section>
 
