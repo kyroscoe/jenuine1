@@ -6,6 +6,8 @@ This file can be re-written at any time.
 {% include 'shogun-content-handler' %}
 <html lang="{{ request.locale.iso_code }}">
   <head>
+  {% comment %}Loads Shogun Analytics. Removing this will disrupt analytics data collection.{% endcomment %}
+  <script type="text/javascript" async src="https://na.shgcdn3.com/pixel-collector.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page_title }}{% if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
