@@ -1,0 +1,60 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="eyebrow">Product search</p>
+    <h1>Search products</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+      <input type="hidden" name="type" value="product">
+      <label for="SearchPageInput" class="visually-hidden">Search products</label>
+      <input id="SearchPageInput" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search by product, store, or apparel type" autocomplete="off">
+      <button class="button button-primary" type="submit">Search</button>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-width">
+    {% if search.performed %}
+      {% paginate search.results by 24 %}
+        {% assign product_results = search.results | where: 'object_type', 'product' %}
+        {% if product_results.size > 0 %}
+          <p class="search-summary">{{ product_results.size }} product{% if product_results.size != 1 %}s{% endif %} found for "{{ search.terms | escape }}"</p>
+          <div class="product-grid">
+            {% for product in product_results %}
+              {% render 'product-card', product: product %}
+            {% endfor %}
+          </div>
+
+          {% if paginate.pages > 1 %}
+            <nav class="pagination" aria-label="Pagination">
+              {% if paginate.previous %}
+                <a class="button button-secondary" href="{{ paginate.previous.url }}">Previous</a>
+              {% endif %}
+              <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+              {% if paginate.next %}
+                <a class="button button-secondary" href="{{ paginate.next.url }}">Next</a>
+              {% endif %}
+            </nav>
+          {% endif %}
+        {% else %}
+          <div class="empty-state">
+            <h2>No products found</h2>
+            <p>No products matched "{{ search.terms | escape }}". Try a product name, school, team, or apparel type.</p>
+            <a class="button button-primary" href="/pages/stores">Browse stores</a>
+          </div>
+        {% endif %}
+      {% endpaginate %}
+    {% else %}
+      <div class="empty-state">
+        <h2>Search the catalog</h2>
+        <p>Use the search bar above to find spiritwear, team stores, and custom apparel products.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main search",
+  "settings": []
+}
+{% endschema %}
