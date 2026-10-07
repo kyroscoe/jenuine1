@@ -20,7 +20,33 @@
       <a href="/pages/contact">Contact</a>
     </nav>
 
-    <a class="header-cta" href="/pages/contact">Start a project</a>
+    <div class="header-actions">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="header-search">
+        <input type="hidden" name="type" value="product">
+        <label for="HeaderSearch" class="visually-hidden">Search products</label>
+        <input id="HeaderSearch" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products" autocomplete="off">
+        <button type="submit" aria-label="Search products">
+          <i class="ri-search-line" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <a class="header-cart" href="{{ routes.cart_url }}" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}{% endif %}">
+        <i class="ri-shopping-bag-3-line" aria-hidden="true"></i>
+        <span>Cart</span>
+        {% if cart.item_count > 0 %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+
+      <a class="header-cta" href="/pages/contact">Start a project</a>
+    </div>
+
+    <a class="mobile-cart-link" href="{{ routes.cart_url }}" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}{% endif %}">
+      <i class="ri-shopping-bag-3-line" aria-hidden="true"></i>
+      {% if cart.item_count > 0 %}
+        <span class="cart-count">{{ cart.item_count }}</span>
+      {% endif %}
+    </a>
 
     <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="MobileMenu" data-mobile-menu-toggle>
       <i class="ri-menu-line" aria-hidden="true"></i>
@@ -34,6 +60,13 @@
     <a href="/pages/stores">School &amp; Team Stores</a>
     <a href="/pages/custom-apparel">Custom Apparel</a>
     <a href="/pages/contact">Contact</a>
+    <a href="{{ routes.cart_url }}">Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="mobile-search">
+      <input type="hidden" name="type" value="product">
+      <label for="MobileSearch" class="visually-hidden">Search products</label>
+      <input id="MobileSearch" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products" autocomplete="off">
+      <button class="button button-primary" type="submit">Search</button>
+    </form>
   </nav>
 </header>
 
